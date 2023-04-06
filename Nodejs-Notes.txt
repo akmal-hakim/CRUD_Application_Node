@@ -1,0 +1,31 @@
+Express  - 
+
+morgan - help to log a message everytime we make a request
+
+nodemon - allows to restart server auto when make changes
+
+ejs - template engine allows to create dynamic html 
+
+body-parser - serialize the data and access the form data using body property
+
+dotenv - allow to seperate secret from sourcecode
+
+mongoose - connect to mongodb database
+
+axios - make it easier to make a
+request with express application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
