@@ -339,4 +339,111 @@ app.listen(PORT, ()=> { console.log(`Server is running on http://localhost:${POR
 	//mongodb connection
 	connectDB();
 
+	---
+
+*/
+
+
+/*
+	PART 11 API
+	---
+	INSIDE model CREATE ANOTHER FILE NAME model.js
+	MAKE THIS CODE 
+
+	const mongoose = require('mongoose');
+
+	var scheme = new mongoose.Scheme({ //Allow to define a shape and content of the document	
+		name : {
+			type : String,
+			required: true
+		},
+		email : {
+			type: String,
+			required: true,
+			unique: true
+		},
+		gender : String,
+		status : String
+	})   
+	
+	const Userdb = mongoose.model('userdb', scheme);
+	module.exports = Userdb;
+
+*/
+
+/*
+	PART 12 CREATE A CONTROLLER
+	---
+	CREATE CONTROLLER INSIDE THE controller FOLDER AND NAME IT controller.js
+	USE THIS CODE NEXT
+
+	var Userdb = require('../model/model');
+
+	//create and save new user
+	exports.create = (req,res)=>{
+
+	}
+
+	// retrieve and return all users/ retrive and return a single user
+	exports.find = (req, res)=>{
+
+	}
+
+	// Update a new idetified user by user id
+	exports.update = (req, res)=>{
+	
+	}
+
+	// Delete a user with specified user id in the request
+	exports.delete = (req, res)=>{
+
+	}
+
+	---
+	IN THE router.js TYPE THIS
+
+	const controller = require('../controller/controller');
+	.
+	.
+	. 
+
+	AT THE BOTTOM TYPE THIS 
+	//API
+	route.post('/api/users', controller.create);
+	route.get('/api/users', controller.find);
+	route.put('/api/users/:id', controller.update);
+	route.delete('/api/users/:id', controller.delete);
+
+*/
+
+/*
+	PART 13 IMPLEMENT THE CONTROLLER
+	---
+	CREATE ALL THE CODING FOR THE CONTROLLER 
+
+	GO CHECK AT THE controller.js 
+
+*/
+
+/*
+	PART 14 POSTMAN
+	---
+	Download Postman 
+
+	Create a new tab
+	Choose post request TYPE
+	Specify the url and the API link
+	Specify the body, if not get errors just like in the create function in the controller.js
+	button choose x-www-form-urlencoded
+	At the key speciy name,email,gender etc and state its value
+	Click send 
+	Successful message if success
+
+*/
+
+/*
+	PaRT 15 FIND&UPDATE&delete
+	All learn from controller.js
+	
+
 */
