@@ -443,7 +443,39 @@ app.listen(PORT, ()=> { console.log(`Server is running on http://localhost:${POR
 
 /*
 	PaRT 15 FIND&UPDATE&delete
+	---
 	All learn from controller.js
 	
+*/
+
+/*
+	PART 16 USING API 
+	---
+	GO TO render.js
+	
+*/
+
+/*
+	PART 17 Create New Users
+	---
+	IN THE _form.ejs INSIDE THE FORM ADD ACTION
+	<form action="/api/users" ... >
+
+	Look at controller.
+	--
+	Next step is to apply pop up message when already saved data
+	
+	JQuery cdnjs
+
+	paste the code before the closing tab __footer.ejs
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	<script src="/js/index.js"></script>
+	--
+	Then create a js file inside the assets folder index.js
+
+	$("#add_user").submit(function(event){ //must be the same with form id="add_user"
+    alert("Data Inserted Successfully!");
+})
 
 */
+

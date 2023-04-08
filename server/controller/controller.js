@@ -25,7 +25,7 @@ exports.create = (req,res)=>{
         .save(user)
         .then(data => {
             //res.send(data) //send data if got error will go to catch.
-            res.redirect('/add-user');
+            res.redirect('/add-user'); //PART 17 once user already save the data it will redirect to any page but in this case we redirect back to the same page
         })
         .catch(err =>{
             res.status(500).send({
@@ -71,12 +71,12 @@ exports.find = (req, res)=>{
 
     //PART 15
 
-    if(req.query.id){
+    if(req.query.id){ // the link to the request would be http:// localhost:300 /api/users?id=apa2id
         const id = req.query.id;
 
         Userdb.findById(id)
             .then(data =>{
-                if(!data){
+                if(!data){ 
                     res.status(404).send({ message : "Not found user with id "+ id})
                 }else{
                     res.send(data)
@@ -98,6 +98,8 @@ exports.find = (req, res)=>{
 
     /*
         OLD CODE 
+
+        //This will return all data 
         // validate request
          Userdb.findById()
          .then(user =>{

@@ -1,9 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\assets",
+    "\\assets\\js",
+    "\\server",
+    "\\server\\controller",
+    "\\server\\database",
+    "\\server\\model",
     "\\views",
     "\\views\\include"
   ],
-  "SelectedNode": "\\views\\index.html",
+  "SelectedNode": "\\assets\\js\\index.js",
   "PreviewInSolutionExplorer": false
 }
