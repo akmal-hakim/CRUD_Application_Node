@@ -11,10 +11,9 @@ $("#update_user").submit(function(event){
     var unindexed_array = $(this).serializeArray();
     var data = {}
 
-    $.map(unindexed_array, function(n, i){
+    $.map(unindexed_array, function(n, i){ //Pass the array and return all data from the this("unindexed_array") array
         data[n['name']] = n['value']
     })
-
 
     var request = {
         "url" : `http://localhost:3000/api/users/${data.id}`,
@@ -27,6 +26,19 @@ $("#update_user").submit(function(event){
     })
 
 })
+/*
+    OLD CODE
+    $("#update_user").submit(function(event){
+
+        event.preventDefault();
+
+        var unindexed_array = $(this).serializeArray();
+        console.log(unindexed_array);
+        // this will return the log after clicking the button 
+    }
+
+*/
+
 
 if(window.location.pathname == "/"){
     $ondelete = $(".table tbody td a.delete");

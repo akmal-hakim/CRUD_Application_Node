@@ -266,8 +266,8 @@ app.listen(PORT, ()=> { console.log(`Server is running on http://localhost:${POR
 	const services = require('../services/render');
 
 	/**
-	* @Description Root Route
-	* @method GET/
+	* Description Root Route
+	* method GET/
 	* /
 	route.get('/',services.homeRoutes);
 
@@ -468,7 +468,7 @@ app.listen(PORT, ()=> { console.log(`Server is running on http://localhost:${POR
 	JQuery cdnjs
 
 	paste the code before the closing tab __footer.ejs
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	<script src="https:// cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 	<script src="/js/index.js"></script>
 	--
 	Then create a js file inside the assets folder index.js
@@ -479,3 +479,92 @@ app.listen(PORT, ()=> { console.log(`Server is running on http://localhost:${POR
 
 */
 
+/*
+	PART 18 UPDATE 
+	---
+	Update the code in render.js 
+
+	exports.update_user = (req, res) =>{
+    axios.get('http:// localhost: 3000/api/users', { params : { id : req.query.id }})
+        .then(function(userdata){
+            res.render("update_user", { user : userdata.data})
+        })
+        .catch(err =>{
+            res.send(err);
+        })
+	}
+	--
+	IN __show.ejs INSERT THIS CODE
+	--
+
+	"/update-user?id=<%= users[i]._id%>"
+	--
+	INSIDE THE update_user.ejs INSERT THIS CODE 
+
+	"<%= user._id %>"
+	"<%= user.name %>"
+	"<%= user.email%>"
+	value="Male" <%= user.gender == 'Male' ? 'checked' : '' %>
+	value="Female"  <%= user.gender == 'Female' ? 'checked' : '' %>
+	--
+	INSIDE THE index.js AT js FOLDER 
+	INSERT THIS 
+
+	$("#update_user").submit(function(event){
+    event.preventDefault();
+
+    var unindexed_array = $(this).serializeArray();
+    var data = {}
+
+    $.map(unindexed_array, function(n, i){
+        data[n['name']] = n['value']
+    })
+
+    var request = {
+        "url" : `http://localhost:3000/api/users/${data.id}`,
+        "method" : "PUT",
+        "data" : data
+    }
+
+    $.ajax(request).done(function(response){
+        alert("Data Updated Successfully!");
+    })
+
+	})
+	--
+
+
+*/
+
+
+/*
+	PART 19 DELETE
+	---
+	INSIDE THE __show.ejs
+
+	data-id=<%= users[i]._id%>
+	--
+	INSIDE index.js IN js FOLDER
+
+	if(window.location.pathname == "/"){
+		$ondelete = $(".table tbody td a.delete");
+		$ondelete.click(function(){
+			var id = $(this).attr("data-id")
+
+			var request = {
+				"url" : `http:// localhost: 3000/api/users/${id}`,
+				"method" : "DELETE"
+			}
+
+			if(confirm("Do you really want to delete this record?")){
+				$.ajax(request).done(function(response){
+					alert("Data Deleted Successfully!");
+					location.reload();
+				})
+			}
+
+		})
+	}
+	--
+
+*/
